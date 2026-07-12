@@ -1,50 +1,45 @@
 package src;
 
-public class Student {
+import java.time.LocalDate;
 
+public class Student {
     private String id;
     private String name;
     private String email;
     private String course;
+    private boolean present; //true if present, false if absent
+    private String date;
 
     public Student(String id, String name, String email, String course) {
         this.id = id;
         this.name = name;
         this.email = email;
         this.course = course;
+        present = false; //everyone starts as absent until marked
+        date = LocalDate.now().toString();
     }
 
-    public String getId() {
-        return id;
+    public boolean isPresent() {
+        return present;
     }
 
-    public String getName() {
-        return name;
+    public void setPresent(boolean present) {
+        this.present = present;
     }
 
-    public String getEmail() {
-        return email;
-    }
-
-    public String getCourse() {
-        return course;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public void setCourse(String course) {
-        this.course = course;
+    public String getDate() {
+        return date;
     }
 
     @Override
     public String toString() {
-        String info = "ID: " + id + " | Name: " + name + " | Email: " + email + " | Course: " + course;
-        return info;
+        String status;
+        if (present) {
+            status = "PRESENT";
+        } else {
+            status = "ABSENT";
+        }
+
+        return "ID: " + id + " | Name: " + name + " | Status: " + status + " | Date: " + date;
     }
 }
