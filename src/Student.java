@@ -7,7 +7,7 @@ public class Student {
     private String name;
     private String email;
     private String course;
-    private boolean present; //true if present, false if absent
+    private boolean present;
     private String date;
 
     public Student(String id, String name, String email, String course) {
@@ -15,24 +15,29 @@ public class Student {
         this.name = name;
         this.email = email;
         this.course = course;
-        present = false; //everyone starts as absent until marked
+        present = false;
         date = LocalDate.now().toString();
     }
+
+    public String getId() {return id;}
+    public String getName() {return name;}
+    public String getEmail() {return email;}
+    public String getCourse() {return course;}
 
     public boolean isPresent() {
         return present;
     }
-
-    public void setPresent(boolean present) {
-        this.present = present;
-    }
-
     public String getDate() {
         return date;
     }
 
+    public void setName(String name) { this.name = name; }
+    public void setEmail(String email) { this.email = email; }
+    public void setCourse(String course) { this.course = course; }
+    public void setPresent(boolean present) { this.present = present; }
+
     @Override
-    public String toString() {
+    public String toString(){
         String status;
         if (present) {
             status = "PRESENT";
@@ -40,6 +45,6 @@ public class Student {
             status = "ABSENT";
         }
 
-        return "ID: " + id + " | Name: " + name + " | Status: " + status + " | Date: " + date;
+        return "ID: " + id + " , Name: " + name + " , Status: " + status + " , Date: " + date;
     }
 }

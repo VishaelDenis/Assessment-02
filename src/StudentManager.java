@@ -7,7 +7,7 @@ public class StudentManager {
 
     private List<Student> students = new ArrayList<>();
 
-    //adds a new student, but first checks if the ID is already taken
+
     public void addStudent(Student student) {
         for (Student s : students) {
             if (s.getId().equals(student.getId())) {
@@ -19,7 +19,7 @@ public class StudentManager {
         System.out.println("Student added.");
     }
 
-    //prints out every student in the list
+
     public void viewAllStudents() {
         if (students.isEmpty()) {
             System.out.println("No students yet.");
@@ -35,7 +35,7 @@ public class StudentManager {
         System.out.println("---------------------");
     }
 
-    //looks for a student by their ID, returns null if not found
+
     public Student searchStudent(String id) {
         for (Student s : students) {
             if (s.getId().equals(id)) {
@@ -45,7 +45,7 @@ public class StudentManager {
         return null;
     }
 
-    //updates a student's info if we can find them
+
     public void updateStudent(String id, String name, String email, String course) {
         Student student = searchStudent(id);
         if (student != null) {
@@ -58,7 +58,7 @@ public class StudentManager {
         }
     }
 
-    //removes a student from the list
+
     public boolean deleteStudent(String id) {
         for (Student s : students) {
             if (s.getId().equals(id)) {
@@ -71,7 +71,7 @@ public class StudentManager {
         return false;
     }
 
-    //marks a student as present for today
+
     public void markPresent(String id) {
         Student student = searchStudent(id);
         if (student != null) {
@@ -82,7 +82,7 @@ public class StudentManager {
         }
     }
 
-    //marks a student as absent for today
+
     public void markAbsent(String id) {
         Student student = searchStudent(id);
         if (student != null) {
@@ -93,7 +93,7 @@ public class StudentManager {
         }
     }
 
-    //shows attendance for everyone in the system
+
     public void viewAttendance() {
         if (students.isEmpty()) {
             System.out.println("No students in the system yet.");

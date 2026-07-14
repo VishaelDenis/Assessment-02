@@ -12,9 +12,10 @@ public class Main {
         System.out.println("(with attendance tracking)");
         System.out.println("Today's date: " + java.time.LocalDate.now());
 
-        while (true) {
+        int choice;
+        do {
             displayMenu();
-            int choice = getChoice();
+            choice = getChoice();
 
             switch (choice) {
                 case 1:
@@ -39,13 +40,14 @@ public class Main {
                     deleteStudent();
                     break;
                 case 8:
-                    System.out.println("Bye!");
-                    return;
+                    System.out.println("Thank you.");
+                    break;
                 default:
-                    System.out.println("That's not a valid option, try again.");
+                    System.out.println("Invalid option, try again.");
             }
-        }
+        } while (choice != 8);
     }
+
 
     private static void displayMenu() {
         System.out.println("\nWhat do you want to do?");
@@ -69,7 +71,7 @@ public class Main {
     }
 
     private static void addStudent() {
-        System.out.println("\nLet's add a new student.");
+        System.out.println("\nAdd a new student.");
         System.out.print("Student ID: ");
         String id = scanner.nextLine();
         System.out.print("Name: ");
